@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Get cart from localStorage or initialize empty
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Update cart count in header
     function updateCartCount() {
         const cartCount = document.getElementById('cart-count');
         if(cartCount) cartCount.innerText = cart.length;
@@ -11,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateCartCount();
 
-    // Add item to cart
+    // Make functions global
     window.addToCart = function(name, price) {
         cart.push({name, price});
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -19,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(name + " added to cart!");
     }
 
-    // Remove item from cart
     window.removeFromCart = function(index) {
         cart.splice(index,1);
         localStorage.setItem('cart', JSON.stringify(cart));
@@ -44,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Checkout page
+    // Checkout
     const checkoutForm = document.getElementById('checkout-form');
     if(checkoutForm) {
         checkoutForm.addEventListener('submit', function(e){
@@ -61,13 +58,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if(searchInput) {
         searchInput.addEventListener('input', function() {
             const filter = searchInput.value.toLowerCase();
-            const products = document.querySelectorAll('.product');
-            products.forEach(product => {
-                const nameTag = product.querySelector('h3');
-                if(nameTag) {
-                    const name = nameTag.innerText.toLowerCase();
-                    product.style.display = name.includes(filter) ? 'block' : 'none';
-                }
+            document.querySelectorAll('.product').forEach(product => {
+                const name = product.querySelector('h3')?.innerText.toLowerCase() || '';
+                product.style.display = name.includes(filter) ? 'block' : 'none';
             });
         });
     }
