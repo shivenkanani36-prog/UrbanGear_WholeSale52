@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - UrbanGear_WholeSale</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>UrbanGear_WholeSale</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+        </nav>
+        <input type="text" id="search-bar" placeholder="Search products...">
+    </header>
+
+    <section class="product-list">
+        <h2>All Products</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Gold Necklace">
+                <h3>Gold Necklace</h3>
+                <p>₹2000</p>
+                <button onclick="addToCart('Gold Necklace', 2000)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Running Shoes">
+                <h3>Running Shoes</h3>
+                <p>₹1500</p>
+                <button onclick="addToCart('Running Shoes', 1500)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/150" alt="Smart Lamp">
+                <h3>Smart Lamp</h3>
+                <p>₹1200</p>
+                <button onclick="addToCart('Smart Lamp', 1200)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 UrbanGear_WholeSale. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
